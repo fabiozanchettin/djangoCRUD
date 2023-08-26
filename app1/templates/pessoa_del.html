@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load humanize %}
+
+{% block content  %}
+    <form method="post">
+        {% csrf_token %}
+        <p>Tem certeza que deseja deletar a pessoa "{{ object.nome }} que ganha R$ {{object.salario|intcomma }}"?</p>
+        {% bootstrap_button button_type="submit" content="Confirmar" %}
+        <a href="{% url 'index' %}" class="btn btn-secondary">Cancelar</a>
+
+    </form>
+{% endblock %}

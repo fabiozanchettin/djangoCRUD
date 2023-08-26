@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <h1>Pessoas</h1>
+        </div>
+        <div class="col">
+             <a href="{% url 'criar_pessoa' %}" class="btn btn-success mt-4">Criar Pessoa</a>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Salario</th>
+                    <th scope="col">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pessoa in pessoas %}
+                    <tr>
+                        <td>{{ pessoa.id }}</td>
+                        <td>{{ pessoa.nome }}</td>
+                        <td>R$ {{ pessoa.salario|intcomma }}</td>
+                        <td>
+                            <a class="btn btn-warning" href="{% url 'editar_pessoa' pessoa.pk %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'deletar_pessoa' pessoa.pk %}">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
