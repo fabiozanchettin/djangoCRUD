@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-^xijcj6p&4e(0@+c)w*%8b7ho%3_rbx)tlx3c30_8j(41dzh72
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://git.heroku.com/crud-django.git']
 
 
 # Application definition
